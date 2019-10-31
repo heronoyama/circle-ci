@@ -10,7 +10,7 @@ public class Ativo {
     private Ativo(){}
 
     public Ativo(String nome) {
-        if (StringUtils.isEmpty(nome)){
+        if (StringUtils.isEmpty(nome) || StringUtils.isEmpty(nome.trim())){
             throw new NomeAtivoInvalido();
         };
         this.nome = nome;
