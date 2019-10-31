@@ -11,19 +11,29 @@ class AtivoTest {
         new Ativo("MCD-X1000");
     }
 
-    @Test void dadoUmNomeVazio_quandoInstanciarUmNovoAtivo_deveriaLancarExcecao(){
+    @Test 
+    void dadoUmNomeVazio_quandoInstanciarUmNovoAtivo_deveriaLancarExcecao(){
         assertThrows(NomeAtivoInvalido.class, () -> {
            new Ativo("");
         });
     }
+    
+    @Test 
+    void dadoUmNomecomEspaco_quandoInstanciarUmNovoAtivo_deveriaLancarExcecao(){
+        assertThrows(NomeAtivoInvalido.class, () -> {
+           new Ativo(" ");
+        });
+    }
 
-    @Test void dadoUmNomeNulo_quantoInstanciarUmNovoAtivo_deveriaLancarExcecao(){
+    @Test 
+    void dadoUmNomeNulo_quantoInstanciarUmNovoAtivo_deveriaLancarExcecao(){
         assertThrows(NomeAtivoInvalido.class, () -> {
             new Ativo(null);
         });
     }
 
-    @Test void dadoUmNovoAtivo_quandoRecuperarSeuId_naoDeveSerNulo(){
+    @Test 
+    void dadoUmNovoAtivo_quandoRecuperarSeuId_naoDeveSerNulo(){
         Ativo ativo = new Ativo("MCX-2000");
         assertNotNull(ativo.getId());
     }
